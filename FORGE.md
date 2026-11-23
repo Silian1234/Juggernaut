@@ -11,9 +11,9 @@
 **SPT version:** 4.1.x (tested on 4.1.6)
 
 **Teaser (≤255):**
-A super-heavy powered assault exoskeleton: full class 6 body armor, a closed helmet with built-in thermal outlines, huge strength, and batteries it eats every 5 minutes.
+A super-heavy powered exoskeleton: full class 6 armor, a helmet with built-in thermal outlines, huge strength, batteries every 5 minutes, and a Labs boss in the same suit with an endless grenade launcher.
 
-**Dependencies:** none. Fika optional.
+**Dependencies:** none. Fika and SAIN optional (Fika headless: install the client plugin on the headless client too).
 
 **Source code:** https://github.com/Silian1234/Juggernaut (check the repository name before publishing)
 

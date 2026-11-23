@@ -3,5 +3,15 @@
   "ThermalEnabled": true,
   "ThermalRange": 250,
   "OutlineColor": "#FF1A1A",
-  "SettingsOwnerProfileId": ""
+  "SettingsOwnerProfileId": "",
+  "BossEnabled": true,
+  "BossChance": 25,
+  "BossTestMode": false,
+  "BossTestUnarmed": false,
+  "BossHealth": 1.5,
+  "BossDamageTaken": 0.35,
+  "BossBackDamage": 1,
+  "BossGrenadeDamage": 0.4,
+  "BossGrenadeRadius": 0.5,
+  "BossFireInterval": 0.6
 }

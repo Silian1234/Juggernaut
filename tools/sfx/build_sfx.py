@@ -77,7 +77,6 @@ def save(snd, name, peak_db=-1.0):
     print("wrote", name, round(len(d) / RATE, 3), "s", flush=True)
 
 
-stomp = load("stomp.flac")
 squeeze = load("roboticsqueeze.flac")
 clank = load("clank1.wav")
 

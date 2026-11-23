@@ -12,6 +12,17 @@ namespace JuggernautClient
         public bool ThermalEnabled = true;
         public float ThermalRange = 250f;
         public string OutlineColor = "#FF1A1A";
+        // raid boss (server contract: BossEnabled .. BossFireInterval)
+        public bool BossEnabled = true;
+        public float BossChance = 25f;
+        public bool BossTestMode;
+        public bool BossTestUnarmed;
+        public float BossHealth = 1.5f;
+        public float BossDamageTaken = 0.35f;
+        public float BossBackDamage = 1.0f;
+        public float BossGrenadeDamage = 0.4f;
+        public float BossGrenadeRadius = 0.5f;
+        public float BossFireInterval = 0.6f;
         public bool CanEdit;
         public bool Accepted;
 
@@ -46,6 +57,16 @@ namespace JuggernautClient
                 _warned = true;
                 return Defaults;
             }
+        }
+
+        // re-read at every raid start: the raid host (Fika headless) runs for hours and must see settings changed since
+        private static object _world;
+        internal static void RefreshOnNewRaid(object world)
+        {
+            if (world == null || ReferenceEquals(world, _world)) return;
+            _world = world;
+            _loaded = null; _nextTry = DateTime.MinValue;
+            Get();
         }
 
         internal static JugSettings Update(JugSettings wanted)

@@ -15,6 +15,7 @@
     <Reference Include="SPTarkov.Server.Core"><HintPath>$(SptServerDir)/SPTarkov.Server.Core.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="SPTarkov.DI"><HintPath>$(SptServerDir)/SPTarkov.DI.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="SPTarkov.Common"><HintPath>$(SptServerDir)/SPTarkov.Common.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="SPTarkov.Reflection"><HintPath>$(SptServerDir)/SPTarkov.Reflection.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="0Harmony"><HintPath>$(SptServerDir)/0Harmony.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="SemanticVersioning"><HintPath>$(SptServerDir)/SemanticVersioning.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>

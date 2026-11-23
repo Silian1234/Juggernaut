@@ -47,9 +47,15 @@ namespace JuggernautClient
 
         private static void OnGameStep(Player __instance, EAudioMovementState movementState)
         {
+            if (Application.isBatchMode || _enabled == null) return;   // headless host: nobody listens
             if (movementState != EAudioMovementState.Run && movementState != EAudioMovementState.Sprint &&
                 movementState != EAudioMovementState.Duck) return;
-            if (_player == null || !ReferenceEquals(__instance, _player)) return;
+            if (_player == null || !ReferenceEquals(__instance, _player))
+            {
+                try { RemoteStep(__instance, movementState); }
+                catch (System.Exception ex) { Plugin.Log.LogWarning("[Juggernaut] remote step sound failed: " + ex.Message); }
+                return;
+            }
             _pendingSteps = 1;
             // the game's own footstep clip for the current surface (metal, concrete, wood, grass...), replayed heavier
             try
@@ -60,6 +66,61 @@ namespace JuggernautClient
                 _pendingSurfaceClip = bank?.PickSingleClip((int)__instance.Environment);
             }
             catch { _pendingSurfaceClip = null; }
+        }
+
+        // ---- other suit wearers (bots incl. the Juggernaut boss, Fika teammates): the same heavy steps, in 3D
+        private sealed class RemoteRig { public GameObject Root; public AudioSource Step, Surface; }
+        private static readonly Dictionary<Player, RemoteRig> Remote = new();
+        private static readonly List<Player> RemoteDead = new();
+
+        private static SurfaceSet CurrentSetOf(Player p) { try { return CurrentSet(p); } catch { return null; } }
+
+        private static void RemoteStep(Player p, EAudioMovementState state)
+        {
+            if (p == null || JugSet.IsLocal(p) || !_enabled.Value || Raw.Count == 0 || JugSet.Worn(p, EFT.InventoryLogic.EquipmentSlot.ArmorVest)?.StringTemplateId != JugSet.Suit)
+                return;
+            if (ClipsLost()) BuildClips();
+            if (!Remote.TryGetValue(p, out var rig) || rig.Root == null)
+            {
+                rig = new RemoteRig { Root = new GameObject("JuggernautRemoteSteps") };
+                rig.Root.transform.SetParent(p.Transform.Original, false);
+                rig.Root.transform.localPosition = new Vector3(0f, 0.2f, 0f);
+                rig.Step = Spatial(rig.Root);
+                var surface = new GameObject("JuggernautRemoteSurface");
+                surface.transform.SetParent(rig.Root.transform, false);
+                rig.Surface = Spatial(surface);
+                surface.AddComponent<AudioLowPassFilter>().cutoffFrequency = 2200f;
+                Remote[p] = rig;
+            }
+            var set = CurrentSetOf(p);
+            var bank = set == null ? null : state == EAudioMovementState.Sprint ? set.SprintSoundBank
+                     : state == EAudioMovementState.Duck ? set.DuckSoundBank : set.RunSoundBank;
+            AudioClip surfaceClip = null;
+            try { surfaceClip = bank?.PickSingleClip((int)p.Environment); } catch { }
+            if (surfaceClip != null)
+            {
+                rig.Surface.pitch = Random.Range(0.66f, 0.74f);
+                rig.Surface.PlayOneShot(surfaceClip, 0.9f * _volume.Value);
+            }
+            var step = Pick("step_heavy");
+            if (step != null) { rig.Step.pitch = Random.Range(0.94f, 1.06f); rig.Step.PlayOneShot(step, 0.8f * _volume.Value); }
+        }
+
+        private static AudioSource Spatial(GameObject go)
+        {
+            var source = go.AddComponent<AudioSource>();
+            source.playOnAwake = false; source.spatialBlend = 1f; source.priority = 40;
+            source.rolloffMode = AudioRolloffMode.Logarithmic; source.minDistance = 4f; source.maxDistance = 70f;
+            source.dopplerLevel = 0f;
+            return source;
+        }
+
+        private static void CleanupRemote()
+        {
+            RemoteDead.Clear();
+            foreach (var entry in Remote)
+                if (entry.Key == null || entry.Value.Root == null || entry.Key.HealthController?.IsAlive != true) RemoteDead.Add(entry.Key);
+            foreach (var p in RemoteDead) { if (Remote[p].Root != null) Object.Destroy(Remote[p].Root); Remote.Remove(p); }
         }
 
         internal static void Init(ConfigFile config)
@@ -218,8 +279,11 @@ namespace JuggernautClient
             _host = null; _oneShot = null; _hum = null; _surface = null; _surfaceFilter = null; _player = null;
         }
 
+        private static float _nextRemoteCleanup;
+
         internal static void Tick()
         {
+            if (Time.unscaledTime >= _nextRemoteCleanup) { _nextRemoteCleanup = Time.unscaledTime + 5f; CleanupRemote(); }
             var player = Singleton<GameWorld>.Instance?.MainPlayer;
             var mode = player != null ? JugSet.Mode(player) : SetMode.None;
             if (!_enabled.Value || Raw.Count == 0 || player == null || mode == SetMode.None || player.HealthController?.IsAlive != true)

@@ -26,7 +26,16 @@
     "jug.insert.desc": "Built-in class 6 Aramid armor of the Juggernaut set.",
     "jug.ears.name": "Juggernaut integrated headset",
     "jug.ears.short": "JUG ears",
-    "jug.ears.desc": "Active hearing protection built into the Juggernaut helmet. Ops-Core AMP sound profile. Cannot be removed."
+    "jug.ears.desc": "Active hearing protection built into the Juggernaut helmet. Ops-Core AMP sound profile. Cannot be removed.",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "ru": {
     "jug.suit.name": "Сверхтяжёлый штурмовой экзоскелет «Джаггернаут»",
@@ -54,7 +63,16 @@
     "jug.insert.desc": "Встроенная арамидная броня 6-го класса сета «Джаггернаут».",
     "jug.ears.name": "Встроенная гарнитура Джаггернаута",
     "jug.ears.short": "JUG уши",
-    "jug.ears.desc": "Активная защита слуха, встроенная в шлем «Джаггернаута». Звуковой профиль Ops-Core AMP. Не снимается."
+    "jug.ears.desc": "Активная защита слуха, встроенная в шлем «Джаггернаута». Звуковой профиль Ops-Core AMP. Не снимается.",
+    "jug.gl.name": "Гранатомёт Джаггернаута",
+    "jug.gl.short": "ДЖАГ ГМ",
+    "jug.gl.desc": "Шестизарядный револьверный гранатомёт 40x46, выданный TushonkaGroup программе «Джаггернаут». Каждое попадание оформляется как «досадное недоразумение» и выставляется счётом получателю. Не продаётся, не одалживается и не про вашу честь: прикручен к владельцу и не снимается с павшего бойца, гарантия заканчивается при первом контакте.",
+    "jug.glmag.name": "Барабан гранатомёта Джаггернаута",
+    "jug.glmag.short": "ДЖАГ-Б",
+    "jug.glmag.desc": "Шестикамерный барабан гранатомёта Джаггернаута. Заряжен на заводе TushonkaGroup, перезаряжается тем, кто ещё стоит на ногах. Не снимается с павшего бойца.",
+    "jug.grenade.name": "Осколочная граната 40x46 Джаггернаута",
+    "jug.grenade.short": "ДЖАГ ОФ",
+    "jug.grenade.desc": "Осколочно-фугасная граната 40x46 с печатью качества TushonkaGroup «На вкус как победа». Заряд уменьшен ради бюджета: бумаги после взрыва стоят дороже самой гранаты. Не снимается с павшего бойца."
   },
   "ge": {
     "jug.suit.name": "Juggernaut superschweres Sturm-Exoskelett",
@@ -79,7 +97,16 @@
     "jug.msg.thermal_off": "Wärmebildmodul aus",
     "jug.ears.desc": "In den Juggernaut-Helm eingebauter aktiver Gehörschutz. Klangprofil Ops-Core AMP. Nicht abnehmbar.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "fr": {
     "jug.suit.name": "Exosquelette d'assaut super-lourd Juggernaut",
@@ -104,7 +131,16 @@
     "jug.msg.thermal_off": "Module thermique désactivé",
     "jug.ears.desc": "Protection auditive active intégrée au casque Juggernaut. Profil sonore Ops-Core AMP. Non amovible.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "es": {
     "jug.suit.name": "Exoesqueleto de asalto superpesado Juggernaut",
@@ -129,7 +165,16 @@
     "jug.msg.thermal_off": "Módulo térmico desactivado",
     "jug.ears.desc": "Protección auditiva activa integrada en el casco Juggernaut. Perfil de sonido Ops-Core AMP. No se puede quitar.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "it": {
     "jug.suit.name": "Esoscheletro d'assalto superpesante Juggernaut",
@@ -154,7 +199,16 @@
     "jug.msg.thermal_off": "Modulo termico disattivato",
     "jug.ears.desc": "Protezione dell'udito attiva integrata nell'elmetto Juggernaut. Profilo audio Ops-Core AMP. Non rimovibile.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "pl": {
     "jug.suit.name": "Superciężki egzoszkielet szturmowy Juggernaut",
@@ -179,7 +233,16 @@
     "jug.msg.thermal_off": "Moduł termowizyjny wyłączony",
     "jug.ears.desc": "Aktywna ochrona słuchu wbudowana w hełm Juggernaut. Profil dźwięku Ops-Core AMP. Nie można jej zdjąć.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "cz": {
     "jug.suit.name": "Supertěžký útočný exoskelet Juggernaut",
@@ -204,7 +267,16 @@
     "jug.msg.thermal_off": "Termovizní modul vypnut",
     "jug.ears.desc": "Aktivní ochrana sluchu vestavěná do helmy Juggernaut. Zvukový profil Ops-Core AMP. Nelze sundat.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "sk": {
     "jug.suit.name": "Superťažký útočný exoskelet Juggernaut",
@@ -229,7 +301,16 @@
     "jug.msg.thermal_off": "Termovízny modul vypnutý",
     "jug.ears.desc": "Aktívna ochrana sluchu zabudovaná do prilby Juggernaut. Zvukový profil Ops-Core AMP. Nedá sa zložiť.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "hu": {
     "jug.suit.name": "Juggernaut szupernehéz rohamexoszkeleton",
@@ -254,7 +335,16 @@
     "jug.msg.thermal_off": "Hőkamerás modul ki",
     "jug.ears.desc": "A Juggernaut sisakba épített aktív hallásvédelem. Ops-Core AMP hangprofil. Nem vehető le.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "ro": {
     "jug.suit.name": "Exoschelet de asalt super-greu Juggernaut",
@@ -279,7 +369,16 @@
     "jug.msg.thermal_off": "Modul termal oprit",
     "jug.ears.desc": "Protecție auditivă activă integrată în casca Juggernaut. Profil sonor Ops-Core AMP. Nu poate fi scoasă.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "tu": {
     "jug.suit.name": "Juggernaut süper ağır taarruz dış iskeleti",
@@ -304,7 +403,16 @@
     "jug.msg.thermal_off": "Termal modül kapalı",
     "jug.ears.desc": "Juggernaut kaskına yerleşik aktif işitme koruması. Ops-Core AMP ses profili. Çıkarılamaz.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "po": {
     "jug.suit.name": "Exoesqueleto de assalto superpesado Juggernaut",
@@ -329,7 +437,16 @@
     "jug.msg.thermal_off": "Módulo térmico desligado",
     "jug.ears.desc": "Proteção auditiva ativa embutida no capacete Juggernaut. Perfil de som Ops-Core AMP. Não pode ser removida.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "jp": {
     "jug.suit.name": "ジャガーノート超重装突撃エクソスケルトン",
@@ -354,7 +471,16 @@
     "jug.msg.thermal_off": "熱源モジュール オフ",
     "jug.ears.desc": "ジャガーノートのヘルメットに内蔵されたアクティブ聴覚保護。Ops-Core AMPの音響プロファイル。取り外し不可。",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "kr": {
     "jug.suit.name": "저거너트 초중량 강습 외골격",
@@ -379,7 +505,16 @@
     "jug.msg.thermal_off": "열화상 모듈 꺼짐",
     "jug.ears.desc": "저거너트 헬멧에 내장된 액티브 청력 보호 장치. Ops-Core AMP 음향 프로필. 분리 불가.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "ch": {
     "jug.suit.name": "主宰者超重型突击外骨骼",
@@ -404,7 +539,16 @@
     "jug.msg.thermal_off": "热成像模块已关闭",
     "jug.ears.desc": "内置于主宰者头盔的主动听力保护。Ops-Core AMP 声音配置。不可拆卸。",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   },
   "es-mx": {
     "jug.suit.name": "Exoesqueleto de asalto superpesado Juggernaut",
@@ -429,6 +573,15 @@
     "jug.msg.thermal_off": "Módulo térmico desactivado",
     "jug.ears.desc": "Protección auditiva activa integrada en el casco Juggernaut. Perfil de sonido Ops-Core AMP. No se puede quitar.",
     "jug.ears.name": "Juggernaut integrated headset",
-    "jug.ears.short": "JUG ears"
+    "jug.ears.short": "JUG ears",
+    "jug.gl.name": "Juggernaut grenade launcher",
+    "jug.gl.short": "JUG GL",
+    "jug.gl.desc": "Six-shot rotary 40x46 grenade launcher issued by TushonkaGroup to the Juggernaut program. Every impact is filed as an \"unfortunate incident\" and billed to the recipient. Not for sale, not for loan, not for you: it is bolted to its owner and cannot be taken from a fallen unit; the warranty ends at first contact.",
+    "jug.glmag.name": "Juggernaut grenade cylinder",
+    "jug.glmag.short": "JUG CYL",
+    "jug.glmag.desc": "Six-chamber cylinder of the Juggernaut grenade launcher. Loaded at the TushonkaGroup factory, reloaded by whoever is still standing. Cannot be taken from a fallen unit.",
+    "jug.grenade.name": "40x46 Juggernaut HE grenade",
+    "jug.grenade.short": "JUG HE",
+    "jug.grenade.desc": "High-explosive 40x46 grenade with the TushonkaGroup quality seal \"Tastes like victory\". Reduced blast for the sake of the budget: the paperwork afterwards costs more than the grenade. Cannot be taken from a fallen unit."
   }
 }

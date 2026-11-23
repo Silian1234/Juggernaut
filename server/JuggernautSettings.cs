@@ -21,6 +21,18 @@ public class JuggernautConfig
     public double ThermalRange { get; set; } = 250;      // metres
     public string OutlineColor { get; set; } = "#FF1A1A";
     public string SettingsOwnerProfileId { get; set; } = "";
+
+    // ---- Juggernaut raid boss (section "3. Juggernaut boss" in the client F12 menu)
+    public bool BossEnabled { get; set; } = true;            // the boss can spawn at all
+    public double BossChance { get; set; } = 25;             // % per Labs raid
+    public bool BossTestMode { get; set; } = false;          // 100% on EVERY map, ~10 s after the raid starts
+    public bool BossTestUnarmed { get; set; } = false;       // test mode only: boss spawns without his PKP and grenade launcher
+    public double BossHealth { get; set; } = 1.5;            // multiplier on Killa's per-part HP (applied live)
+    public double BossDamageTaken { get; set; } = 0.35;      // multiplier on all damage the boss takes (client/host)
+    public double BossBackDamage { get; set; } = 1.0;        // same, for hits from behind (battery pack)
+    public double BossGrenadeDamage { get; set; } = 0.4;     // grenade explosion damage multiplier (applied at server start)
+    public double BossGrenadeRadius { get; set; } = 0.5;     // grenade explosion radius multiplier (applied at server start)
+    public double BossFireInterval { get; set; } = 0.6;      // min seconds between grenade shots (client/host)
 }
 
 public record JuggernautClientSettings : IRequestData
@@ -29,6 +41,17 @@ public record JuggernautClientSettings : IRequestData
     public bool ThermalEnabled { get; set; }
     public double ThermalRange { get; set; }
     public string OutlineColor { get; set; }
+    // boss settings are nullable so that an update from a client that does not send them leaves the stored values alone
+    public bool? BossEnabled { get; set; }
+    public double? BossChance { get; set; }
+    public bool? BossTestMode { get; set; }
+    public bool? BossTestUnarmed { get; set; }
+    public double? BossHealth { get; set; }
+    public double? BossDamageTaken { get; set; }
+    public double? BossBackDamage { get; set; }
+    public double? BossGrenadeDamage { get; set; }
+    public double? BossGrenadeRadius { get; set; }
+    public double? BossFireInterval { get; set; }
     public bool CanEdit { get; set; }
     public bool Accepted { get; set; }
 }
@@ -39,6 +62,18 @@ public static class JuggernautSettings
         Path.Combine(Path.GetDirectoryName(typeof(JuggernautSettings).Assembly.Location)!, "config.json");
 
     public static JuggernautConfig Config { get; private set; } = Load();
+
+    /// <summary>Raised (outside the lock) after the settings were changed from the F12 menu.</summary>
+    public static event Action Changed;
+
+    internal static void RaiseChanged()
+    {
+        try { Changed?.Invoke(); } catch { /* a listener must never break the settings route */ }
+    }
+
+    /// <summary>Clamps a number to [min, max]; NaN/Infinity fall back to <paramref name="fallback"/>.</summary>
+    public static double Clamp(double? value, double min, double max, double fallback) =>
+        value is { } v && double.IsFinite(v) ? Math.Clamp(v, min, max) : fallback;
 
     private static JuggernautConfig Load()
     {
@@ -66,6 +101,9 @@ public static class JuggernautSettings
         return new JuggernautClientSettings
         {
             DrainMinutes = c.DrainMinutes, ThermalEnabled = c.ThermalEnabled, ThermalRange = c.ThermalRange, OutlineColor = c.OutlineColor,
+            BossEnabled = c.BossEnabled, BossChance = c.BossChance, BossTestMode = c.BossTestMode, BossTestUnarmed = c.BossTestUnarmed, BossHealth = c.BossHealth,
+            BossDamageTaken = c.BossDamageTaken, BossBackDamage = c.BossBackDamage, BossGrenadeDamage = c.BossGrenadeDamage,
+            BossGrenadeRadius = c.BossGrenadeRadius, BossFireInterval = c.BossFireInterval,
             CanEdit = string.IsNullOrEmpty(c.SettingsOwnerProfileId) || c.SettingsOwnerProfileId == profileId,
             Accepted = accepted,
         };
@@ -94,10 +132,23 @@ public class JuggernautSettingsRouter(JsonUtil json, ISptLogger<JuggernautSettin
             c.ThermalEnabled = info.ThermalEnabled;
             c.ThermalRange = Math.Clamp(info.ThermalRange, 10, 1000);
             c.OutlineColor = JuggernautSettings.Color(info.OutlineColor);
+            if (info.BossEnabled.HasValue) c.BossEnabled = info.BossEnabled.Value;
+            if (info.BossTestMode.HasValue) c.BossTestMode = info.BossTestMode.Value;
+            if (info.BossTestUnarmed.HasValue) c.BossTestUnarmed = info.BossTestUnarmed.Value;
+            if (info.BossChance.HasValue) c.BossChance = JuggernautSettings.Clamp(info.BossChance, 0, 100, c.BossChance);
+            if (info.BossHealth.HasValue) c.BossHealth = JuggernautSettings.Clamp(info.BossHealth, 0.1, 20, c.BossHealth);
+            if (info.BossDamageTaken.HasValue) c.BossDamageTaken = JuggernautSettings.Clamp(info.BossDamageTaken, 0.01, 10, c.BossDamageTaken);
+            if (info.BossBackDamage.HasValue) c.BossBackDamage = JuggernautSettings.Clamp(info.BossBackDamage, 0.01, 10, c.BossBackDamage);
+            if (info.BossGrenadeDamage.HasValue) c.BossGrenadeDamage = JuggernautSettings.Clamp(info.BossGrenadeDamage, 0.01, 10, c.BossGrenadeDamage);
+            if (info.BossGrenadeRadius.HasValue) c.BossGrenadeRadius = JuggernautSettings.Clamp(info.BossGrenadeRadius, 0.1, 5, c.BossGrenadeRadius);
+            if (info.BossFireInterval.HasValue) c.BossFireInterval = JuggernautSettings.Clamp(info.BossFireInterval, 0.1, 30, c.BossFireInterval);
             try { JuggernautSettings.Save(); }
             catch (Exception ex) { log.Warning($"[Juggernaut] could not save config.json: {ex.Message}"); }
         }
-        log.Info($"[Juggernaut] settings changed from F12: cell lasts {c.DrainMinutes} min, thermal {(c.ThermalEnabled ? "on" : "off")} {c.ThermalRange} m {c.OutlineColor}");
+        JuggernautSettings.RaiseChanged();
+        log.Info($"[Juggernaut] settings changed from F12: cell lasts {c.DrainMinutes} min, thermal {(c.ThermalEnabled ? "on" : "off")} {c.ThermalRange} m {c.OutlineColor}; " +
+                 $"boss {(c.BossEnabled ? "on" : "off")} {c.BossChance}% test {(c.BossTestMode ? "on" : "off")} hp x{c.BossHealth} dmg x{c.BossDamageTaken} back x{c.BossBackDamage} " +
+                 $"grenade x{c.BossGrenadeDamage}/r x{c.BossGrenadeRadius} (restart) fire {c.BossFireInterval}s");
         return new ValueTask<string>(json.Serialize(JuggernautSettings.Current(id, true)));
     })
 ]);
