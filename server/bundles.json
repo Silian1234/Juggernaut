@@ -1,0 +1,8 @@
+{
+  "manifest": [
+    { "key": "assets/content/items/equipment/juggernaut/item_equipment_juggernaut_suit.bundle", "dependencyKeys": ["assets/commonassets/physics/physicsmaterials.bundle", "cubemaps", "shaders"] },
+    { "key": "assets/content/items/equipment/juggernaut/item_equipment_juggernaut_helmet.bundle", "dependencyKeys": ["shaders", "cubemaps", "assets/commonassets/physics/physicsmaterials.bundle"] },
+    { "key": "assets/content/items/equipment/juggernaut/item_juggernaut_thermal_module.bundle", "dependencyKeys": ["shaders", "cubemaps", "assets/commonassets/physics/physicsmaterials.bundle"] },
+    { "key": "assets/content/items/equipment/juggernaut/item_juggernaut_power_cell.bundle", "dependencyKeys": ["shaders", "cubemaps", "assets/commonassets/physics/physicsmaterials.bundle"] }
+  ]
+}

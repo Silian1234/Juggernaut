@@ -1,0 +1,16 @@
+Juggernaut suit sounds - sources (all CC0 / public domain, from OpenGameArt.org)
+
+Processed (pitch, time stretch, layering, filters, normalisation) by tools/sfx/build_sfx.py.
+
+- "Mech Stomp / Step Sound" by hc (based on a recording by Iwan "qubodup" Gabovitch) - CC0
+  https://opengameart.org/content/mech-stomp-step-sound
+- "Metal footsteps on concrete" by Thimras - CC0
+  https://opengameart.org/content/metal-footsteps-on-concrete
+- "Quick Drill Fix" (roboticsqueeze) by qubodup - CC0
+  https://opengameart.org/content/quick-drill-fix
+- "(defect) motor loop" (fan_interval) by qubodup - CC0
+  https://opengameart.org/content/defect-motor-loop
+- "Mechanical Sounds" by BMacZero - CC0
+  https://opengameart.org/content/mechanical-sounds
+
+Attribution is not required by CC0; it is given here as a courtesy.

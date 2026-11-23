@@ -1,0 +1,7 @@
+{
+  "DrainMinutes": 5,
+  "ThermalEnabled": true,
+  "ThermalRange": 250,
+  "OutlineColor": "#FF1A1A",
+  "SettingsOwnerProfileId": ""
+}

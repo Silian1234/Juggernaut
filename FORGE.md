@@ -1,0 +1,22 @@
+# Forge submission fields
+
+**Name:** Juggernaut From TushonkaGroup
+
+**Mod GUID:** `com.silian.juggernaut` (client plugin: `com.silian.juggernaut.client`)
+
+**Version:** `1.0.0` (server `ModMetadata.Version` and client `BepInPlugin` both say 1.0.0)
+
+**License:** MIT
+
+**SPT version:** 4.1.x (tested on 4.1.6)
+
+**Teaser (≤255):**
+A super-heavy powered assault exoskeleton: full class 6 body armor, a closed helmet with built-in thermal outlines, huge strength, and batteries it eats every 5 minutes.
+
+**Dependencies:** none. Fika optional.
+
+**Source code:** https://github.com/Silian1234/Juggernaut (check the repository name before publishing)
+
+**Release file:** `dist/Juggernaut-1.0.0-SPT-4.1.6.zip`
+
+**Description:** contents of `FORGE_DESCRIPTION.md`. The banner link points to `art/banner.png` on the `main` branch of the repository above, so push the repo before publishing the page.

@@ -1,0 +1,35 @@
+# build output
+bin/
+obj/
+*.user
+.vs/
+__pycache__/
+*.pyc
+dist/
+*.bak-*
+optix7cache.db
+*.db
+
+# large art working files (kept locally, not in git)
+*.blend
+*.blend1
+*.exr
+*.fbx
+*.glb
+art/build/
+art/unity_project/
+art/**/work/
+art/v5-astra/textures/
+art/v5-astra/hdri/
+art/v5-astra/source/
+art/v5-astra/scripts_thick/
+art/v5d_suit/
+art/v5d_rigid/
+art/suit/
+art/accessories/
+art/rigid/
+art/previews/
+art/icons/
+art/design/
+art/v5-claude/
+docs/feedback/
