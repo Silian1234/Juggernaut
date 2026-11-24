@@ -4,7 +4,7 @@
 
 **Mod GUID:** `com.silian.juggernaut` (client plugin: `com.silian.juggernaut.client`)
 
-**Version:** `1.0.0` (server `ModMetadata.Version` and client `BepInPlugin` both say 1.0.0)
+**Version:** `1.1.1` (server `ModMetadata.Version` and client `BepInPlugin` both say 1.1.1)
 
 **License:** MIT
 
@@ -17,6 +17,6 @@ A super-heavy powered exoskeleton: full class 6 armor, a helmet with built-in th
 
 **Source code:** https://github.com/Silian1234/Juggernaut (check the repository name before publishing)
 
-**Release file:** `dist/Juggernaut-1.0.0-SPT-4.1.6.zip`
+**Release file:** `dist/Juggernaut-1.1.1-SPT-4.1.6.zip`
 
 **Description:** contents of `FORGE_DESCRIPTION.md`. The banner link points to `art/banner.png` on the `main` branch of the repository above, so push the repo before publishing the page.

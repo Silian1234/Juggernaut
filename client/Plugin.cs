@@ -8,7 +8,8 @@ using UnityEngine;
 
 namespace JuggernautClient
 {
-    [BepInPlugin("com.silian.juggernaut.client", "Juggernaut From TushonkaGroup", "1.0.0")]
+    [BepInPlugin("com.silian.juggernaut.client", "Juggernaut From TushonkaGroup", "1.1.1")]
+    [BepInDependency("com.mpstark.PlayerEncumbranceBar", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {
         internal static ManualLogSource Log;
@@ -28,6 +29,7 @@ namespace JuggernautClient
             Feature("thermal picture block", ThermalPictureBlock.Patch);
             Feature("boss launcher stays on the body", BossLauncherKeep.Patch);
             Feature("suit footsteps", JugSound.Patch);
+            Feature("PlayerEncumbranceBar compat", EncumbranceBarCompat.Patch);
             Feature("exoskeleton movement", ExoskeletonMovement.Patch);
             Feature("exoskeleton traversal", _ => ExoskeletonTraversal.Patch(new Harmony("com.silian.juggernaut.traversal")));
             // raid boss (bossTest): runs on the raid host, which may be a Fika headless client

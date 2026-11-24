@@ -3,7 +3,7 @@
 import os, sys, zipfile
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = sys.argv[1] if len(sys.argv) > 1 else "1.0.0"
+VERSION = sys.argv[1] if len(sys.argv) > 1 else "1.1.1"
 OUT = os.path.join(R, "dist", f"Juggernaut-{VERSION}-SPT-4.1.6.zip")
 S = "SPT_Runtime/user/mods/Juggernaut/"
 C = "BepInEx/plugins/JuggernautClient/"
