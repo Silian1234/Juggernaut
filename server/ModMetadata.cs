@@ -11,7 +11,7 @@ public record ModMetadata : IModMetadata
     public string Name { get; init; } = "Juggernaut From TushonkaGroup";
     public string Author { get; init; } = "silian";
     public List<string> Contributors { get; init; }
-    public Version Version { get; init; } = new("1.1.1");
+    public Version Version { get; init; } = new("1.1.2");
     public Range SptVersion { get; init; } = new("~4.1.3");
     public List<string> Incompatibilities { get; init; }
     public Dictionary<string, Range> ModDependencies { get; init; }

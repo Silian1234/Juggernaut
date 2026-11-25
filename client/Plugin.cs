@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace JuggernautClient
 {
-    [BepInPlugin("com.silian.juggernaut.client", "Juggernaut From TushonkaGroup", "1.1.1")]
+    [BepInPlugin("com.silian.juggernaut.client", "Juggernaut From TushonkaGroup", "1.1.2")]
     [BepInDependency("com.mpstark.PlayerEncumbranceBar", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {

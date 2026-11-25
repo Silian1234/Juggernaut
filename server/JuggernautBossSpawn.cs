@@ -103,6 +103,15 @@ public class JuggernautPatchLoader(IEnumerable<IRuntimePatch> patches, ISptLogge
             }
         }
         catch (Exception ex) { log.Error($"[Juggernaut] boss spawn patch failed: {ex}"); }
+        try
+        {
+            foreach (var patch in patches.OfType<JuggernautInsurancePatch>())
+            {
+                patch.Enable();
+                log.Success($"[Juggernaut] insurance: parts patch {(patch.IsActive ? "enabled" : "NOT active")} on InsuranceService.MapInsuredItemsToTrader");
+            }
+        }
+        catch (Exception ex) { log.Error($"[Juggernaut] insurance patch failed: {ex}"); }
         return Task.CompletedTask;
     }
 }

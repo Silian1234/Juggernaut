@@ -24,6 +24,8 @@ namespace JuggernautClient
         private static bool _clipsDirty;
         private static ConfigEntry<float> _volume;
         private static ConfigEntry<bool> _enabled;
+        // per-sound volume, on top of the master volume (1 = as designed)
+        private static ConfigEntry<float> _vSurface, _vThump, _vCreak, _vServo, _vJump, _vLand, _vPowerUp, _vPowerDown, _vHum, _vRemote;
 
         private static Player _player;
         private static GameObject _host;
@@ -100,10 +102,10 @@ namespace JuggernautClient
             if (surfaceClip != null)
             {
                 rig.Surface.pitch = Random.Range(0.66f, 0.74f);
-                rig.Surface.PlayOneShot(surfaceClip, 0.9f * _volume.Value);
+                rig.Surface.PlayOneShot(surfaceClip, 0.9f * _volume.Value * _vSurface.Value * _vRemote.Value);
             }
             var step = Pick("step_heavy");
-            if (step != null) { rig.Step.pitch = Random.Range(0.94f, 1.06f); rig.Step.PlayOneShot(step, 0.8f * _volume.Value); }
+            if (step != null) { rig.Step.pitch = Random.Range(0.94f, 1.06f); rig.Step.PlayOneShot(step, 0.8f * _volume.Value * _vThump.Value * _vRemote.Value); }
         }
 
         private static AudioSource Spatial(GameObject go)
@@ -126,8 +128,22 @@ namespace JuggernautClient
         internal static void Init(ConfigFile config)
         {
             _enabled = config.Bind("Juggernaut sounds", "Enabled", true, "Servo, footstep and power sounds of the Juggernaut suit.");
-            _volume = config.Bind("Juggernaut sounds", "Volume", 1.0f, new ConfigDescription("Volume of the suit sounds.",
-                new AcceptableValueRange<float>(0f, 1.5f)));
+            _volume = config.Bind("Juggernaut sounds", "Volume", 1.0f, new ConfigDescription("Master volume of all suit sounds.",
+                new AcceptableValueRange<float>(0f, 1.5f), new ConfigurationManagerAttributes { Order = 99 }));
+            int order = 98;
+            ConfigEntry<float> Slider(string name, string desc) => config.Bind("Juggernaut sounds", name, 1.0f, new ConfigDescription(
+                desc + " Multiplies the master volume: 1 = as designed, 0 = off.", new AcceptableValueRange<float>(0f, 2f),
+                new ConfigurationManagerAttributes { Order = order-- }));
+            _vSurface = Slider("Footsteps: surface", "The game's own footstep for the floor under you, pitched down and darkened.");
+            _vThump = Slider("Footsteps: heavy thump", "The low weight thump under every step.");
+            _vCreak = Slider("Creaks (no power)", "Dry creaks of the frame while walking without power.");
+            _vServo = Slider("Servos (start / turn)", "Servo whine when you start moving or turn sharply (powered).");
+            _vJump = Slider("Jump servo", "Servo push on a jump (powered).");
+            _vLand = Slider("Landing", "Heavy stomp when you land after a fall or a jump.");
+            _vPowerUp = Slider("Power on", "Cue when the suit gets power.");
+            _vPowerDown = Slider("Power off", "Cue when the power runs out.");
+            _vHum = Slider("Motor hum", "Motor hum that follows your speed (powered).");
+            _vRemote = Slider("Other wearers (3D)", "Footsteps of other players and bots wearing the suit, heard in 3D.");
         }
 
         internal static IEnumerator Load(string dir)
@@ -219,14 +235,17 @@ namespace JuggernautClient
         {
             var list = new List<AudioClip>(6);
             foreach (var entry in Clips)
-                if (entry.Key.StartsWith(prefix)) list.Add(entry.Value);
+                // "servo_" (start/turn) must not pick "servo_jump": the jump has its own slider
+                if (entry.Key.StartsWith(prefix) && !(prefix == "servo_" && entry.Key.StartsWith("servo_jump"))) list.Add(entry.Value);
             return list.Count == 0 ? null : list[Random.Range(0, list.Count)];
         }
 
         private static int _diag = 3;
 
-        private static void Play(string prefix, float volume, float pitchJitter = 0.06f)
+        private static void Play(string prefix, float volume, ConfigEntry<float> part, float pitchJitter = 0.06f)
         {
+            volume *= part.Value;
+            if (volume <= 0f) return;
             var clip = Pick(prefix);
             if (clip == null || _oneShot == null) return;
             if (_diag > 0)
@@ -311,8 +330,8 @@ namespace JuggernautClient
             // power cues
             if (mode != _lastMode)
             {
-                if (_lastMode == SetMode.Discharged && powered) Play("power_up", 1f, 0f);
-                else if (_lastMode == SetMode.Powered && mode == SetMode.Discharged) Play("power_down", 1f, 0f);
+                if (_lastMode == SetMode.Discharged && powered) Play("power_up", 1f, _vPowerUp, 0f);
+                else if (_lastMode == SetMode.Powered && mode == SetMode.Discharged) Play("power_down", 1f, _vPowerDown, 0f);
                 _lastMode = mode;
             }
 
@@ -327,11 +346,11 @@ namespace JuggernautClient
                     if (surfaceClip != null && _surface != null)
                     {
                         _surface.pitch = Random.Range(0.66f, 0.74f);
-                        _surface.PlayOneShot(surfaceClip, 0.9f * _volume.Value);
+                        _surface.PlayOneShot(surfaceClip, 0.9f * _volume.Value * _vSurface.Value);
                     }
                     // weight layer: our non-ringing low thump under it
-                    Play("step_heavy", powered ? 0.8f : 0.7f);
-                    if (!powered && Random.value < 0.35f && _creakCooldown <= 0f) { Play("creak", 0.7f); _creakCooldown = 1.2f; }
+                    Play("step_heavy", powered ? 0.8f : 0.7f, _vThump);
+                    if (!powered && Random.value < 0.35f && _creakCooldown <= 0f) { Play("creak", 0.7f, _vCreak); _creakCooldown = 1.2f; }
                 }
             }
 
@@ -342,22 +361,22 @@ namespace JuggernautClient
             float yawRate = Mathf.Abs(Mathf.DeltaAngle(_lastYaw, yaw)) / dt; _lastYaw = yaw;
             if (powered && _servoCooldown <= 0f && ((moving && !_wasMoving) || yawRate > 260f))
             {
-                Play("servo_", 0.5f, 0.05f);
+                Play("servo_", 0.5f, _vServo, 0.05f);
                 _servoCooldown = 1.6f;
             }
             _wasMoving = moving;
 
             // jump and landing
             if (!grounded) _airTime += dt;
-            if (_wasGrounded && !grounded && delta.y > 0.02f && powered) Play("servo_jump", 0.9f, 0.05f);
-            if (!_wasGrounded && grounded && _airTime > 0.35f) Play("land_heavy", Mathf.Clamp01(0.6f + _airTime * 0.5f), 0.04f);
+            if (_wasGrounded && !grounded && delta.y > 0.02f && powered) Play("servo_jump", 0.9f, _vJump, 0.05f);
+            if (!_wasGrounded && grounded && _airTime > 0.35f) Play("land_heavy", Mathf.Clamp01(0.6f + _airTime * 0.5f), _vLand, 0.04f);
             if (grounded) _airTime = 0f;
             _wasGrounded = grounded;
 
             // motor hum follows the speed while powered
             if (_hum != null && _hum.clip != null)
             {
-                float target = powered ? Mathf.Clamp01(speed / 6f) * 0.35f * _volume.Value : 0f;
+                float target = powered ? Mathf.Clamp01(speed / 6f) * 0.35f * _volume.Value * _vHum.Value : 0f;
                 _hum.volume = Mathf.MoveTowards(_hum.volume, target, dt * 0.8f);
                 _hum.pitch = 0.9f + Mathf.Clamp01(speed / 6f) * 0.25f;
                 if (_hum.volume > 0.001f && !_hum.isPlaying) _hum.Play();
